@@ -1,10 +1,10 @@
 /**
+ * Routes for admin bulk operations (Issue #262).
+ *
  * @openapi
  * tags:
  *   - name: Admin Bulk Operations
  *     description: Bulk admin operations for credentials, enrollments, and user import
- *
- * Issue: #262
  */
 
 import { Router } from 'express';

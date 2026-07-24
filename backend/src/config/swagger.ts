@@ -150,53 +150,61 @@ const options: swaggerJsdoc.Options = {
           },
         },
       },
-    },
-    responses: {
-      Problem400: {
-        description: 'Bad request (RFC 7807 Problem Details).',
-        content: {
-          'application/problem+json': {
-            schema: { $ref: '#/components/schemas/ProblemDetails' },
+      responses: {
+        Problem400: {
+          description: 'Bad request (RFC 7807 Problem Details).',
+          content: {
+            'application/problem+json': {
+              schema: { $ref: '#/components/schemas/ProblemDetails' },
+            },
           },
         },
-      },
-      Problem401: {
-        description: 'Authentication required (RFC 7807 Problem Details).',
-        content: {
-          'application/problem+json': {
-            schema: { $ref: '#/components/schemas/ProblemDetails' },
+        Problem401: {
+          description: 'Authentication required (RFC 7807 Problem Details).',
+          content: {
+            'application/problem+json': {
+              schema: { $ref: '#/components/schemas/ProblemDetails' },
+            },
           },
         },
-      },
-      Problem403: {
-        description: 'Forbidden (RFC 7807 Problem Details).',
-        content: {
-          'application/problem+json': {
-            schema: { $ref: '#/components/schemas/ProblemDetails' },
+        Problem403: {
+          description: 'Forbidden (RFC 7807 Problem Details).',
+          content: {
+            'application/problem+json': {
+              schema: { $ref: '#/components/schemas/ProblemDetails' },
+            },
           },
         },
-      },
-      Problem404: {
-        description: 'Resource not found (RFC 7807 Problem Details).',
-        content: {
-          'application/problem+json': {
-            schema: { $ref: '#/components/schemas/ProblemDetails' },
+        Problem404: {
+          description: 'Resource not found (RFC 7807 Problem Details).',
+          content: {
+            'application/problem+json': {
+              schema: { $ref: '#/components/schemas/ProblemDetails' },
+            },
           },
         },
-      },
-      Problem429: {
-        description: 'Rate limited (RFC 7807 Problem Details).',
-        content: {
-          'application/problem+json': {
-            schema: { $ref: '#/components/schemas/ProblemDetails' },
+        Problem409: {
+          description: 'Conflict (RFC 7807 Problem Details) – e.g. duplicate resource.',
+          content: {
+            'application/problem+json': {
+              schema: { $ref: '#/components/schemas/ProblemDetails' },
+            },
           },
         },
-      },
-      Problem500: {
-        description: 'Internal server error (RFC 7807 Problem Details).',
-        content: {
-          'application/problem+json': {
-            schema: { $ref: '#/components/schemas/ProblemDetails' },
+        Problem429: {
+          description: 'Rate limited (RFC 7807 Problem Details).',
+          content: {
+            'application/problem+json': {
+              schema: { $ref: '#/components/schemas/ProblemDetails' },
+            },
+          },
+        },
+        Problem500: {
+          description: 'Internal server error (RFC 7807 Problem Details).',
+          content: {
+            'application/problem+json': {
+              schema: { $ref: '#/components/schemas/ProblemDetails' },
+            },
           },
         },
       },

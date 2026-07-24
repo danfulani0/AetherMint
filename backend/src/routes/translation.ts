@@ -288,7 +288,7 @@ router.post(
  *     parameters:
  *       - in: path
  *         name: contentType
- *         required: false
+ *         required: true
  *         schema:
  *           type: string
  *           enum: [course, subtitle, interaction, general]

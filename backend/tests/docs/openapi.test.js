@@ -125,8 +125,8 @@ describe('OpenAPI spec – component schemas', () => {
   });
 
   const requiredSchemas = [
-    'ErrorResponse',
-    'Error',
+    'ProblemDetails',
+    'FieldValidationError',
     'Pagination',
     'User',
     'AuthResponse',
@@ -147,16 +147,18 @@ describe('OpenAPI spec – component schemas', () => {
     expect(schemas[name]).toBeDefined();
   });
 
-  test('ErrorResponse matches the required error shape', () => {
-    const s = schemas.ErrorResponse;
+  test('ProblemDetails has the RFC 7807 required fields', () => {
+    const s = schemas.ProblemDetails;
     expect(s.type).toBe('object');
-    expect(s.properties.success).toBeDefined();
-    expect(s.properties.error).toBeDefined();
-    const ep = s.properties.error.properties;
-    expect(ep.code).toBeDefined();
-    expect(ep.message).toBeDefined();
-    expect(ep.details).toBeDefined();
-    expect(ep.requestId).toBeDefined();
+    // Required top-level RFC 7807 fields (plus AetherMint extensions).
+    const required = ['type', 'title', 'status', 'detail', 'instance', 'code', 'success', 'requestId', 'timestamp'];
+    for (const field of required) {
+      expect(s.required || []).toContain(field);
+      expect(s.properties[field]).toBeDefined();
+    }
+    // Field-level validation errors (§A extension) must produce a structured array.
+    expect(s.properties.errors).toBeDefined();
+    expect(s.properties.errors.type).toBe('array');
   });
 
   test('User schema has id, username, email, role fields', () => {

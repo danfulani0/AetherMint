@@ -11,29 +11,11 @@
  * components:
  *   schemas:
  *
- *     # ─── Unified error response ───────────────────────────────────────────
- *     ErrorResponse:
- *       type: object
- *       description: Standard error envelope returned by all error handlers.
- *       properties:
- *         success:
- *           type: boolean
- *           example: false
- *         error:
- *           type: object
- *           properties:
- *             code:
- *               type: string
- *               example: NOT_FOUND
- *             message:
- *               type: string
- *               example: Resource not found
- *             details:
- *               type: object
- *               nullable: true
- *             requestId:
- *               type: string
- *               example: req-12345
+ *     # NOTE: The canonical RFC 7807 ProblemDetails envelope is declared
+ *     # inline in `backend/src/docs/openapi.ts` under
+ *     # `components.schemas.ProblemDetails`. Every `@openapi` endpoint
+ *     # annotation in this repo references that single source of truth
+ *     # (Issue #254), so we deliberately do not redeclare it here.
  *
  *     # ─── Pagination meta ──────────────────────────────────────────────────
  *     Pagination:
